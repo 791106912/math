@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <lable>P</lable>
+        <input id='p' />
+    </div>
+    <div>
+        <lable>t/分钟</lable>
+        <input id='t'/>
+    </div>
+    <button id='cal'>计算</button>
+    <div>
+        结果：
+        <span id='result'></span>
+    </div>
+    <div></div>
+    <script>
+        function calresult(p, t) {
+            return (2578.764 * (1 + 0.997 * (Math.log(p) / Math.log(10)))) / Math.pow((t + 13.076), 0.785)
+        }
+        document.getElementById('cal').addEventListener('click', () => {
+            var p = Number(document.getElementById('p').value)
+            var t = Number(document.getElementById('t').value)
+            console.log(p);
+            var result = calresult(p, t)
+            document.getElementById('result').innerText = result
+        })
+    </script>
+</body>
+</html>
